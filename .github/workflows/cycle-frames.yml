@@ -18,7 +18,7 @@ jobs:
           NOW=$(date +%s)
           LAST=$(cat .last_run 2>/dev/null || echo 0)
           GAP=$(( NOW - LAST ))
-          if [ $GAP -lt 5 ]; then
+          if [ $GAP -lt 21600 ]; then
             echo "Run blocked due to rate limit ($GAP seconds since last run)"
             echo "ratelimited=true" >> "$GITHUB_OUTPUT"
           else
@@ -61,7 +61,7 @@ jobs:
           git diff --cached --quiet && echo "No changes" || \
             (git commit -m "Auto-update to frame ${{ steps.bump.outputs.cur }}" && git push)
 
-      # 5-minute delay before notifications
+      # 5-minute delay before notifications (300)
       - name: Wait 5 minutes
         if: steps.ratelimit.outputs.ratelimited == 'false'
         run: sleep 5
