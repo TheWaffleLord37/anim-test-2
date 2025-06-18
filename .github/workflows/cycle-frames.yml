@@ -77,7 +77,7 @@ jobs:
 
       # Discord message for frame 4 → 5 transition
       - name: Notify Discord (frame 4 to 5)
-        if: ${{ success() && steps.ratelimit.outputs.ratelimited == 'false' && steps.bump.outputs.cur == '4' && steps.bump.outputs.next == '5' }}
+        if: ${{ success() && steps.ratelimit.outputs.ratelimited == 'false' && steps.bump.outputs.cur == '5'}}
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
