@@ -72,7 +72,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"## bop template updated to frame 1\\n(animation restarted, no difference with last frame)\"}" \
+               -d "{\"content\": \"## bop template updated to frame 1\\n(animation restarted, no difference with the last frame)\"}" \
                ${{ secrets.DISCORD_WEBHOOK }}
 
       # Discord message for frame 4 → 5 transition
@@ -81,7 +81,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"## bop template updated to frame 5\\n(no difference with last frame)\"}" \
+               -d "{\"content\": \"## bop template updated to frame 5\\n(no difference with the last frame)\"}" \
                ${{ secrets.DISCORD_WEBHOOK }}
 
       # Discord message for normal frame update
